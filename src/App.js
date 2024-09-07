@@ -1,8 +1,14 @@
+import { Navigate, Route, Routes } from "react-router-dom";
+import MainPage from "./page/MainPage";
+import WritePage from "./page/WritePage";
+
 function App() {
   return (
-    <div className="App">
-      <div className="text-6xl">안녕하세요</div>
-    </div>
+    <Routes>
+      <Route path="/main" element={<MainPage/>}/>
+      <Route path="/write" element={<WritePage/>}/>
+      <Route path="/*" element={<Navigate to="/main"/>}/>
+    </Routes>
   );
 }
 
