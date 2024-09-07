@@ -1,6 +1,10 @@
+import WriteTodoForm from "../components/WriteTodoForm";
+
 function WritePage() {
-  return <>
-    <div className="text-center">write page</div>
-  </>;
+  return (
+    <>
+      <WriteTodoForm />
+    </>
+  );
 }
 export default WritePage;
