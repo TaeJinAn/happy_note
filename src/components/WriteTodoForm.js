@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, TextField } from "@mui/material";
 import { useSnackBarState, useTodoState } from "../states";
 import { useEffect } from "react";
+import { getCurrentDateTime } from "../util";
 
 export default function WriteTodoForm() {
   const todoState = useTodoState();
@@ -19,6 +20,8 @@ export default function WriteTodoForm() {
       return;
     }
     const newTodoId = todoState.addTodos(form.regDate.value, form.content.value);
+    form.content.value = getCurrentDateTime();
+    form.content.value = "";
     snackBarState.openSnackBar(`${newTodoId}번 할일이 추가 되었습니다.`);
 
     console.log("WriteTodoFrom onSubmit End");
@@ -34,6 +37,7 @@ export default function WriteTodoForm() {
           label="언제 해야 되나요?"
           focused
           name="regDate"
+          value={getCurrentDateTime()}
         />
         <TextField
           name="content"
