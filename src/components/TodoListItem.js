@@ -17,8 +17,8 @@ export default function TodoListItem({ todo }) {
             />
             <Chip label={todo.regDate} variant="outlined" color="primary" />
           </div>
-          <div className="rounded-lg shadow-md flex items-center">
-            <Button color="inherit" className="rounded-lg flex-shrink-0" onClick={() => {todoState.checkTodo(todo.id);}}>
+          <div className="rounded-xl shadow-md flex items-center">
+            <Button color="inherit" className="!rounded-xl flex-shrink-0" onClick={() => {todoState.checkTodo(todo.id);}}>
               <span
                 className={classNames(
                   { "text-[#990011]": todo.checked },
