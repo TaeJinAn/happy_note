@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { snackbarAtom, todosAtom } from "./atoms";
+import { produce } from "immer";
 
 export function useTodoState() {
   const [todoData, setTodoData] = useRecoilState(todosAtom);
@@ -15,6 +16,7 @@ export function useTodoState() {
       regDate: regDate,
       content: content,
       id: id,
+      checked: false,
     };
     setTodoData({
       ...todoData,
@@ -25,8 +27,21 @@ export function useTodoState() {
     return id;
   };
 
+  const checkTodo = (id) => {
+    console.log("checkTodo start!!");
+    setTodoData(
+      produce(todoData, (draft) => {
+        const index = draft.todos.findIndex((todo) => todo.id == id);
+        if (index != -1) {
+          draft.todos[index].checked = !draft.todos[index].checked;
+        }
+      })
+    );
+  };
+
   return {
     addTodos,
+    checkTodo,
     todoData,
   };
 }
