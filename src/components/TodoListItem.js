@@ -10,7 +10,7 @@ export default function TodoListItem({todo}) {
             <Chip label={`번호 : ${todo.id}`} variant="filled" color="primary" />
             <Chip label={todo.regDate} variant="outlined" color="primary"/>
           </div>
-          <div className="rounded-lg shadow-md p-2 flex items-baseline gap-3">
+          <div className="rounded-lg shadow-md p-3 flex items-baseline gap-3">
             <i className="fa-solid fa-check text-[#dcdcdc]" />
             <Divider
               orientation="vertical"
