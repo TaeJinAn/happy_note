@@ -1,18 +1,15 @@
 import { Box, Tab, Tabs } from "@mui/material";
-import { useState } from "react";
+import { useArrayTabState } from "../states";
 
 export default function ArrayTab() {
-  const [value, setValue] = useState(0);
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  const arrayTabState = useArrayTabState();
   return (
     <>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           variant="fullWidth"
-          value={value}
-          onChange={handleChange}
+          value={arrayTabState.tabData.tab}
+          onChange={arrayTabState.handleChange}
           aria-label="basic tabs example"
         >
           <Tab label="전체" />

@@ -1,6 +1,6 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useRecoilState } from "recoil";
-import { snackbarAtom, todosAtom } from "./atoms";
+import { arrayTabAtom, snackbarAtom, todosAtom } from "./atoms";
 import { produce } from "immer";
 
 export function useTodoState() {
@@ -66,4 +66,15 @@ export function useSnackBarState() {
     handleClose,
     openSnackBar,
   };
+}
+
+export function useArrayTabState() {
+  const [tabData, setTabData] = useRecoilState(arrayTabAtom);
+  const handleChange = (event, tab) => {
+    setTabData({...tabData, tab: tab});
+  };
+  return {
+    tabData,
+    handleChange
+  }
 }

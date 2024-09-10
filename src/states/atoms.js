@@ -3,9 +3,9 @@ import { atom } from "recoil";
 export const todosAtom = atom({
   key: "app/todosAtom",
   default: {
-    todos: [],  // 배열로 초기화
-    lastTodoId: 0
-  }
+    todos: [], // 배열로 초기화
+    lastTodoId: 0,
+  },
 });
 
 export const snackbarAtom = atom({
@@ -14,6 +14,13 @@ export const snackbarAtom = atom({
     open: false,
     severity: "success",
     duration: 6000,
-    msg: ""
+    msg: "",
+  },
+});
+
+export const arrayTabAtom = atom({
+  key: "app/arrayTabAtom",
+  default: {
+    tab: 0,
   },
 });
