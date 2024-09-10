@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useRecoilState } from "recoil";
-import { arrayTabAtom, snackbarAtom, todosAtom } from "./atoms";
+import { arrayTabAtom, optionDrawerAtom, snackbarAtom, todosAtom } from "./atoms";
 import { produce } from "immer";
 
 export function useTodoState() {
@@ -76,5 +76,20 @@ export function useArrayTabState() {
   return {
     tabData,
     handleChange
+  }
+}
+
+export function useOptionDrawerState() {
+  const [drawerData, setDrawerData] = useRecoilState(optionDrawerAtom);
+  const drawerOpen = (todo) => {
+    setDrawerData({...drawerData, open: true, todo: todo});
+  }
+  const handleClose = () => {
+    setDrawerData({...drawerData, open: false});
+  }
+  return {
+    drawerData,
+    handleClose,
+    drawerOpen
   }
 }

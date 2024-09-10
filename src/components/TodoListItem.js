@@ -1,9 +1,10 @@
 import { Button, Chip, Divider } from "@mui/material";
 import classNames from "classnames";
-import { useTodoState } from "../states/states";
+import { useOptionDrawerState, useTodoState } from "../states/states";
 
 export default function TodoListItem({ todo }) {
   const todoState = useTodoState();
+  const optionDrawerState = useOptionDrawerState();
   console.log(JSON.stringify(todo.id));
   return (
     <>
@@ -38,15 +39,9 @@ export default function TodoListItem({ todo }) {
             <div className="hover:text-[#990011] whitespace-pre-wrap leading-relaxed flex-grow items-center p-3">
               {todo.content}
             </div>
-            <Divider
-              orientation="vertical"
-              variant="middle"
-              flexItem
-              sx={{ background: "#dcdcdc", width: "3px" }}
-            />
-            <Button color="inherit" className="!rounded-[0_0.75rem_0.75rem_0] flex-shrink-0" onClick={() => {}}>
+            <Button color="inherit" className="!rounded-[0_0.75rem_0.75rem_0] flex-shrink-0" onClick={() => {optionDrawerState.drawerOpen(todo)}}>
               <span
-                className={"text-4xl h-[80px] flex items-center"}
+                className={"text-4xl h-[80px] flex items-center text-[#dcdcdc]"}
               >
                 <i className="fa-solid fa-ellipsis-vertical"></i>
               </span>

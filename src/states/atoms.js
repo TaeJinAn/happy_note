@@ -24,3 +24,11 @@ export const arrayTabAtom = atom({
     tab: 0,
   },
 });
+
+export const optionDrawerAtom = atom({
+  key: "app/optionDrawerAtom",
+  default: {
+    open: false,
+    todo: {}
+  },
+});
