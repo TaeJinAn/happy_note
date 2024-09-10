@@ -18,7 +18,7 @@ export default function TodoListItem({ todo }) {
             <Chip label={todo.regDate} variant="outlined" color="primary" />
           </div>
           <div className="rounded-xl shadow-md flex items-center">
-            <Button color="inherit" className="!rounded-xl flex-shrink-0" onClick={() => {todoState.checkTodo(todo.id);}}>
+            <Button color="inherit" className="!rounded-[0.75rem_0_0_0.75rem] flex-shrink-0" onClick={() => {todoState.checkTodo(todo.id);}}>
               <span
                 className={classNames(
                   { "text-[#990011]": todo.checked },
@@ -38,6 +38,19 @@ export default function TodoListItem({ todo }) {
             <div className="hover:text-[#990011] whitespace-pre-wrap leading-relaxed flex-grow items-center p-3">
               {todo.content}
             </div>
+            <Divider
+              orientation="vertical"
+              variant="middle"
+              flexItem
+              sx={{ background: "#dcdcdc", width: "3px" }}
+            />
+            <Button color="inherit" className="!rounded-[0_0.75rem_0.75rem_0] flex-shrink-0" onClick={() => {}}>
+              <span
+                className={"text-4xl h-[80px] flex items-center"}
+              >
+                <i className="fa-solid fa-ellipsis-vertical"></i>
+              </span>
+            </Button>
           </div>
         </div>
       </li>
