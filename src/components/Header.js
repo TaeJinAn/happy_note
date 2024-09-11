@@ -21,6 +21,9 @@ export default function Header() {
                 {location.pathname == "/write" && (
                   <NavLink to="/main" className="hover:font-bold hover:underline">다음에 할래요</NavLink>
                 )}
+                {location.pathname.includes("/edit") && (
+                  <NavLink to="/main" className="hover:font-bold hover:underline">다음에 할래요</NavLink>
+                )}
               </li>
             </ul>
           </Toolbar>

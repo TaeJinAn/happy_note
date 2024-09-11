@@ -23,9 +23,24 @@ export function useTodoState() {
       lastTodoId: id,
       todos: [newTodo, ...todoData.todos],
     });
-    console.log("addTodos End todos");
+    console.log("addTodos End");
     return id;
   };
+
+  const editTodo = (id, regDate, content) => {
+    console.log("editTodo start!!");
+    setTodoData(
+      produce(todoData, (draft) => {
+        const index = draft.todos.findIndex((todo) => todo.id == id);
+        if (index != -1) {
+          draft.todos[index].content = content;
+          draft.todos[index].regDate = regDate;
+        }
+      })
+    );
+    console.log("editTodo End");
+    return id;
+  }
 
   const checkTodo = (id) => {
     console.log("checkTodo start!!");
@@ -41,6 +56,7 @@ export function useTodoState() {
 
   return {
     addTodos,
+    editTodo,
     checkTodo,
     todoData,
   };
@@ -85,7 +101,7 @@ export function useOptionDrawerState() {
     setDrawerData({...drawerData, open: true, todo: todo});
   }
   const handleClose = () => {
-    setDrawerData({...drawerData, open: false});
+    setDrawerData({todo: {}, open: false});
   }
   return {
     drawerData,

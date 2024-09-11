@@ -1,5 +1,6 @@
 import { Divider, List, ListItem, ListItemButton, SwipeableDrawer } from "@mui/material";
 import { useOptionDrawerState } from "../states";
+import { NavLink } from "react-router-dom";
 
 export default function OptionDrawer() {
   const optionDrawerState = useOptionDrawerState();
@@ -22,7 +23,8 @@ export default function OptionDrawer() {
             </span>
           </ListItem>
           <Divider />
-          <ListItem button className="flex gap-2 items-baseline !p-5 !px-10" onClick={()=>{}} >
+          <ListItem button className="flex gap-2 items-baseline !p-5 !px-10" onClick={()=>{}} component={NavLink}
+            to={`/edit/${optionDrawerState.drawerData.todo?.id}`}>
               <i className="fa-solid fa-pen-to-square"></i>
               <span>수정</span>
           </ListItem>
