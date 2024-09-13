@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { useRecoilState } from "recoil";
 import { arrayTabAtom, optionDrawerAtom, snackbarAtom, subTabAtom, todosAtom } from "./atoms";
 import { produce } from "immer";
+import { getCurrentDateTime } from "../util";
 
 export function useTodoState() {
   const [todoData, setTodoData] = useRecoilState(todosAtom);
@@ -49,6 +50,7 @@ export function useTodoState() {
         const index = draft.todos.findIndex((todo) => todo.id == id);
         if (index != -1) {
           draft.todos[index].checked = !draft.todos[index].checked;
+          draft.todos[index].checked ? draft.todos[index].completeDate = getCurrentDateTime() : draft.todos[index].completeDate = null;
         }
       })
     );

@@ -16,6 +16,7 @@ export default function TodoListItem({ todo }) {
               color="primary"
             />
             <Chip label={todo.regDate} variant="outlined" color="primary" />
+            {todo.completeDate && <Chip label={"완료 : " + todo.completeDate} variant="filled" color="primary" />}
           </div>
           <div className="rounded-xl shadow-md flex items-center">
             <Button color="inherit" className="!rounded-[0.75rem_0_0_0.75rem] flex-shrink-0" onClick={() => {todoState.checkTodo(todo.id);}}>
