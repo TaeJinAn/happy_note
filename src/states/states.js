@@ -14,6 +14,7 @@ export function useTodoState() {
     console.log(regDate, content, "start addTodos");
     const id = ++lastTodoIdRef.current;
     const newTodo = {
+      createDate: getCurrentDateTime(),
       regDate: regDate,
       content: content,
       id: id,
