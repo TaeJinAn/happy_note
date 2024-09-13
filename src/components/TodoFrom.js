@@ -37,6 +37,8 @@ export default function TodoFrom({ mode, todoId }) {
           form.regDate.value,
           form.content.value
         );
+        setContent("");
+        setRegDate(getCurrentDateTime());
         break;
       case "edit":
         returnTodoId = todoState.editTodo(
@@ -46,7 +48,7 @@ export default function TodoFrom({ mode, todoId }) {
         );
         break;
     }
-    form.content.value = getCurrentDateTime();
+    form.regDate.value = getCurrentDateTime();
     form.content.value = "";
     snackBarState.openSnackBar(`${returnTodoId}번 할일이 ${msg} 되었습니다.`);
 

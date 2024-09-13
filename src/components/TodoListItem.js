@@ -5,7 +5,6 @@ import { useOptionDrawerState, useTodoState } from "../states/states";
 export default function TodoListItem({ todo }) {
   const todoState = useTodoState();
   const optionDrawerState = useOptionDrawerState();
-  console.log(JSON.stringify(todo.id));
   return (
     <>
       <li className="mt-5 mx-20  text-4xl">

@@ -1,4 +1,5 @@
 import ArrayTab from "../components/\bArrayTab";
+import ArraySubTab from "../components/ArraySubTab";
 import TodoList from "../components/TodoList";
 import TodosEmpty from "../components/TodosEmpty";
 import { useTodoState } from "../states";
@@ -13,7 +14,9 @@ function MainPage() {
   }
   return (
     <>
+
       <ArrayTab />
+      <ArraySubTab />
       <TodoList />
     </>
   );

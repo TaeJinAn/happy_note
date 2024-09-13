@@ -25,6 +25,13 @@ export const arrayTabAtom = atom({
   },
 });
 
+export const subTabAtom = atom({
+  key: "app/subTabAtom",
+  default: {
+    tab: 0,
+  },
+});
+
 export const optionDrawerAtom = atom({
   key: "app/optionDrawerAtom",
   default: {
@@ -32,3 +39,5 @@ export const optionDrawerAtom = atom({
     todo: {}
   },
 });
+
+

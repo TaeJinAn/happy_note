@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useRecoilState } from "recoil";
-import { arrayTabAtom, optionDrawerAtom, snackbarAtom, todosAtom } from "./atoms";
+import { arrayTabAtom, optionDrawerAtom, snackbarAtom, subTabAtom, todosAtom } from "./atoms";
 import { produce } from "immer";
 
 export function useTodoState() {
@@ -91,6 +91,17 @@ export function useArrayTabState() {
   };
   return {
     tabData,
+    handleChange
+  }
+}
+
+export function useArraySubTabState() {
+  const [subTabData, setSubTabData] = useRecoilState(subTabAtom);
+  const handleChange = (event, tab) => {
+    setSubTabData({...subTabData, tab: tab});
+  };
+  return {
+    subTabData,
     handleChange
   }
 }

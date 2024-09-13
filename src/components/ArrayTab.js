@@ -12,9 +12,9 @@ export default function ArrayTab() {
           onChange={arrayTabState.handleChange}
           aria-label="basic tabs example"
         >
-          <Tab label="전체" />
-          <Tab label="완료" />
-          <Tab label="미완료" />
+          <Tab label={<i className="fa-solid fa-bars">&nbsp;전체</i>} />
+          <Tab label={<i class="fa-regular fa-square-check">&nbsp;완료</i>} />
+          <Tab label={<i class="fa-regular fa-square">&nbsp;미완료</i>} />
         </Tabs>
       </Box>
     </>
