@@ -1,9 +1,15 @@
 import { AppBar, Toolbar } from "@mui/material";
-import { hover } from "@testing-library/user-event/dist/hover";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 export default function Header() {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  // 핸들러 함수 정의
+  const handleBack = () => {
+    navigate(-1); // history.back()과 동일
+  };
+
   return (
     <>
       <div>
@@ -15,14 +21,20 @@ export default function Header() {
                 <span className="text-xl font-bold">Happy Note</span>
               </li>
               <li>
-                {location.pathname == "/main" && (
-                  <NavLink to="/write" className="hover:font-bold hover:underline">할일 추가</NavLink>
+                {location.pathname === "/main" && (
+                  <NavLink to="/write" className="hover:font-bold hover:underline">
+                    할일 추가
+                  </NavLink>
                 )}
-                {location.pathname == "/write" && (
-                  <NavLink to="/main" className="hover:font-bold hover:underline">다음에 할래요</NavLink>
+                {location.pathname === "/write" && (
+                  <span onClick={handleBack} className="font-bold hover:underline">
+                    다음에 할래요
+                  </span>
                 )}
                 {location.pathname.includes("/edit") && (
-                  <NavLink to="/main" className="hover:font-bold hover:underline">다음에 할래요</NavLink>
+                  <span onClick={handleBack} className="font-bold hover:underline">
+                    다음에 할래요
+                  </span>
                 )}
               </li>
             </ul>
