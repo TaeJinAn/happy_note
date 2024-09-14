@@ -1,7 +1,11 @@
 import { faMarker } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, TextField } from "@mui/material";
-import { useOptionDrawerState, useSnackBarState, useTodoState } from "../states";
+import {
+  useOptionDrawerState,
+  useSnackBarState,
+  useTodoState,
+} from "../states";
 import { useEffect, useState } from "react";
 import { getCurrentDateTime } from "../util";
 
@@ -9,10 +13,12 @@ export default function TodoFrom({ mode, todoId }) {
   const todoState = useTodoState();
   const snackBarState = useSnackBarState();
   const optionDrawerState = useOptionDrawerState();
-  let msg = mode == "edit" ? "수정" : "추가"
+  let msg = mode == "edit" ? "수정-" + todoId + "번" : "추가";
   // 상태로 날짜와 내용을 관리
   const [regDate, setRegDate] = useState(
-    mode === "edit" ? optionDrawerState.drawerData.todo.regDate : getCurrentDateTime()
+    mode === "edit"
+      ? optionDrawerState.drawerData.todo.regDate
+      : getCurrentDateTime()
   );
   const [content, setContent] = useState(
     mode === "edit" ? optionDrawerState.drawerData.todo.content : ""
@@ -70,7 +76,9 @@ export default function TodoFrom({ mode, todoId }) {
           focused
           name="regDate"
           value={regDate}
-          onChange={(e)=>{setRegDate(e.target.value)}}
+          onChange={(e) => {
+            setRegDate(e.target.value);
+          }}
         />
         <TextField
           name="content"
@@ -83,7 +91,9 @@ export default function TodoFrom({ mode, todoId }) {
             htmlInput: { className: "flex-1" },
           }}
           value={content}
-          onChange={(e)=>{setContent(e.target.value)}}
+          onChange={(e) => {
+            setContent(e.target.value);
+          }}
         />
         <Button type="submit" variant="contained">
           {/* <i class="fa-solid fa-marker"></i> */}
