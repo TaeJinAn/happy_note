@@ -15,8 +15,10 @@ export default function Header() {
       <div>
         <AppBar position="static">
           <Toolbar>
-            <ul className="flex flex-1 justify-between">
-              <li className="text-xl font-bold">logo</li>
+            <ul className="flex flex-1 justify-between items-center">
+              <li>
+                <img src="/logo.png" alt="Happy Note logo" className="h-10"/>
+              </li>
               <li>
                 <span className="text-xl font-bold">Happy Note</span>
               </li>
