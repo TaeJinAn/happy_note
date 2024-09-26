@@ -13,8 +13,8 @@ export default function ArrayTab() {
           aria-label="basic tabs example"
         >
           <Tab label={<i className="fa-solid fa-bars">&nbsp;전체</i>} />
-          <Tab label={<i class="fa-regular fa-square-check">&nbsp;완료</i>} />
-          <Tab label={<i class="fa-regular fa-square">&nbsp;미완료</i>} />
+          <Tab label={<i className="fa-regular fa-square-check">&nbsp;완료</i>} />
+          <Tab label={<i className="fa-regular fa-square">&nbsp;미완료</i>} />
         </Tabs>
       </Box>
     </>

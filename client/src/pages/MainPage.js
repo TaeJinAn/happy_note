@@ -1,5 +1,6 @@
-import ArrayTab from "../components/\bArrayTab";
+import NoticeSnackBar from "../components/NoticeSnackBar";
 import ArraySubTab from "../components/ArraySubTab";
+import ArrayTab from "../components/ArrayTab";
 import TodoList from "../components/TodoList";
 import TodosEmpty from "../components/TodosEmpty";
 import { useTodoState } from "../states";
@@ -14,7 +15,7 @@ function MainPage() {
   }
   return (
     <>
-
+      <NoticeSnackBar />
       <ArrayTab />
       <ArraySubTab />
       <TodoList />

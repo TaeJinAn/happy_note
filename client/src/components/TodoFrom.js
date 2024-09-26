@@ -13,7 +13,7 @@ export default function TodoFrom({ mode, todoId }) {
   const todoState = useTodoState();
   const snackBarState = useSnackBarState();
   const optionDrawerState = useOptionDrawerState();
-  let msg = mode == "edit" ? "수정-" + todoId + "번" : "추가";
+  let msg = mode == "edit" ? "수정" : "추가";
   // 상태로 날짜와 내용을 관리
   const [regDate, setRegDate] = useState(
     mode === "edit"
@@ -24,7 +24,7 @@ export default function TodoFrom({ mode, todoId }) {
     mode === "edit" ? optionDrawerState.drawerData.todo.content : ""
   );
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     let returnTodoId;
@@ -39,7 +39,7 @@ export default function TodoFrom({ mode, todoId }) {
     }
     switch (mode) {
       case "add":
-        returnTodoId = todoState.addTodos(
+        returnTodoId = await todoState.addTodos(
           form.regDate.value,
           form.content.value
         );
@@ -47,7 +47,7 @@ export default function TodoFrom({ mode, todoId }) {
         setRegDate(getCurrentDateTime());
         break;
       case "edit":
-        returnTodoId = todoState.editTodo(
+        returnTodoId = await todoState.editTodo(
           todoId,
           form.regDate.value,
           form.content.value
