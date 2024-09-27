@@ -61,11 +61,11 @@ export default function TodoFrom({ mode, todoId }) {
     console.log(mode + "Todofrom onSubmit End");
   };
 
-  useEffect(() => {
-    console.log(
-      "todos updated!! : " + JSON.stringify(todoState.todoData.todos)
-    );
-  }, [todoState.todoData.todos]);
+  // useEffect(() => {
+  //   console.log(
+  //     "todos updated!! : " + JSON.stringify(todoState.todoData.todos)
+  //   );
+  // }, [todoState.todoData.todos]);
 
   return (
     <>
